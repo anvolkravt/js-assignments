@@ -210,9 +210,7 @@ function extractEmails(str) {
  *
  */
 function getRectangleString(width, height) {
-    return String.fromCharCode(9484) + String.fromCharCode(9472).repeat(width-2) + String.fromCharCode(9488) + "\n" +
-            (String.fromCharCode(9474) + " ".repeat(width-2) + String.fromCharCode(9474) + "\n").repeat(height-2) +
-            String.fromCharCode(9492) + String.fromCharCode(9472).repeat(width-2) + String.fromCharCode(9496);
+    return String.fromCharCode(9484) + String.fromCharCode(9472).repeat(width-2) + String.fromCharCode(9488) + "\n" + (String.fromCharCode(9474) + " ".repeat(width-2) + String.fromCharCode(9474) + "\n").repeat(height-2) + String.fromCharCode(9492) + String.fromCharCode(9472).repeat(width-2) + String.fromCharCode(9496) + "\n";
 }
 
 
@@ -257,7 +255,7 @@ function encodeToRot13(str) {
  *   isString(new String('test')) => true
  */
 function isString(value) {
-    return typeof(value) == 'string';
+    return Object.prototype.toString.call(value) === "[object String]";
 }
 
 
@@ -286,7 +284,9 @@ function isString(value) {
  *   'K♠' => 51
  */
 function getCardId(value) {
-    throw new Error('Not implemented');
+    // throw new Error('Not implemented');
+    let arr = ['A♣','2♣','3♣','4♣','5♣','6♣','7♣','8♣','9♣','10♣','J♣','Q♣','K♣','A♦','2♦','3♦','4♦','5♦','6♦','7♦','8♦','9♦','10♦','J♦','Q♦','K♦','A♥','2♥','3♥','4♥','5♥','6♥','7♥','8♥','9♥','10♥','J♥','Q♥','K♥','A♠','2♠','3♠','4♠','5♠','6♠','7♠','8♠','9♠','10♠','J♠','Q♠','K♠'];
+    return arr.indexOf(value);
 }
 
 
