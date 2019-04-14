@@ -25,9 +25,7 @@
  *   getComposition(Math.sin, Math.asin)(x) => Math.sin(Math.acos(x))
  *
  */
-function getComposition(f,g) {
-    throw new Error('Not implemented');
-}
+const getComposition = (...fns) => x => fns.reduceRight((y, f) => f(y), x);
 
 
 /**
@@ -47,7 +45,9 @@ function getComposition(f,g) {
  *
  */
 function getPowerFunction(exponent) {
-    throw new Error('Not implemented');
+    return function(x) {
+        return Math.pow(x, exponent);
+    }
 }
 
 
